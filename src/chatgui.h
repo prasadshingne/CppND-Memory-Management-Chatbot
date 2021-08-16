@@ -2,8 +2,12 @@
 #define CHATGUI_H_
 
 #include <wx/wx.h>
+#include <memory>
+
+using namespace std;
 
 class ChatLogic; // forward declaration
+
 
 // middle part of the window containing the dialog between user and chatbot
 class ChatBotPanelDialog : public wxScrolledWindow
@@ -16,7 +20,10 @@ private:
     //// STUDENT CODE
     ////
 
-    ChatLogic *_chatLogic;
+    //ChatLogic *_chatLogic;
+    
+    // Use unique pointer to make _chatLogic an exclusive resource of class ChatBotPanelDialog
+    unique_ptr<ChatLogic> _chatLogic;
 
     ////
     //// EOF STUDENT CODE
@@ -27,7 +34,10 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    ChatLogic *GetChatLogicHandle() { return _chatLogic; }
+    //ChatLogic *GetChatLogicHandle() { return _chatLogic; }
+    
+    // change to reflect use of unique_ptr
+    ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 
     // events
     void paintEvent(wxPaintEvent &evt);
