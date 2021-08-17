@@ -19,14 +19,9 @@ private:
     //// STUDENT CODE
     ////
 
-    // data handles (owned)
-    //std::vector<GraphNode *> _nodes;
-
     // use unique_ptr to adapt vector _nodes to ensure GraphNodes
     // are exclusively owned by ChatLogic
-    vector<unique_ptr<GraphNode>> _nodes; // 
-    
-    //std::vector<GraphEdge *> _edges;
+    vector<unique_ptr<GraphNode>> _nodes; 
 
     ////
     //// EOF STUDENT CODE

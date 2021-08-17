@@ -65,7 +65,8 @@ ChatBot::ChatBot(ChatBot &&src){
     _currentNode = src._currentNode;
     _rootNode = src._rootNode;
     _chatLogic = src._chatLogic;
-    _image = new wxBitmap(*src._image);
+    _image = src._image; // do not allocate new memory
+    src._image = NULL;
 
     _chatLogic->SetChatbotHandle(this);
 
@@ -86,7 +87,8 @@ ChatBot& ChatBot::operator=(ChatBot &&src){
     _currentNode = src._currentNode;
     _rootNode = src._rootNode;
     _chatLogic = src._chatLogic;
-    _image = new wxBitmap(*src._image);
+    _image = src._image; // do not allocate new momory
+    src._image = NULL;
 
     _chatLogic->SetChatbotHandle(this);
 

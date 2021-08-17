@@ -19,9 +19,7 @@ private:
 
     //// STUDENT CODE
     ////
-
-    //ChatLogic *_chatLogic;
-    
+  
     // Use unique pointer to make _chatLogic an exclusive resource of class ChatBotPanelDialog
     unique_ptr<ChatLogic> _chatLogic;
 
@@ -32,10 +30,7 @@ public:
     // constructor / destructor
     ChatBotPanelDialog(wxWindow *parent, wxWindowID id);
     ~ChatBotPanelDialog();
-
-    // getter / setter
-    //ChatLogic *GetChatLogicHandle() { return _chatLogic; }
-    
+   
     // change to reflect use of unique_ptr
     ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 
